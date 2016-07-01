@@ -1,0 +1,8 @@
+node_modules/
+
+# CSS is generated from Stylus, so ignore CSS
+assets/css/
+
+# The comments partial will contain codes to connect to some comments 
+# provider, so it shouldn't be checked into source control.
+partials/comments.hbs
