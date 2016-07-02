@@ -1,0 +1,68 @@
+<script>
+    const baseUrl = 'https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/';
+
+    var addCss = function(url) {
+        var css = document.createElement('link');
+        css.type = 'text/css';
+        css.rel = 'stylesheet';
+        css.href = url;
+        document.getElementsByTagName('head')[0].appendChild(css);
+    };
+
+    var addJs = function(url) {
+        var script = document.createElement('script');
+        script.type = 'text/javascript';
+        script.src = url;
+        document.body.appendChild(script);
+    }
+
+    var addPrismMainCss = function(theme) {
+        addCss(baseUrl + 'themes/prism-' + theme + '.min.css');
+    }
+
+    var addPrismMainJs = function() {
+        addJs(baseUrl + 'prism.min.js');
+    }
+
+    var addPrismLangJs = function(lang) {
+        addJs(baseUrl + 'components/prism-' + lang + '.min.js');
+    }
+
+    var addPrismPluginCssAndJs = function(plugin) {
+        var pluginBase = baseUrl + 'plugins/' + plugin + '/prism-' + plugin;
+        addCss(pluginBase + '.min.css');
+        addJs(pluginBase + '.min.js');
+    }
+
+    var codeElems = document.getElementsByTagName('code');
+    if (codeElems.length > 0) {
+        addPrismMainCss('okaidia');
+        addPrismMainJs();
+
+        var preElems = document.getElementsByTagName('pre');
+        for (i = 0; i < preElems.length; ++i) {
+            preElems[i].className += ' line-numbers';
+        }
+
+        addPrismPluginCssAndJs('line-numbers');
+
+        var languages = [];
+        var pattern = /\blang(?:uage)?-(\w+)\b/i;
+        for (i = 0; i < codeElems.length; ++i) {
+            var res = pattern.exec(codeElems[i].className);
+            if (res != null) {
+                lang = res[1];
+            } else {
+                codeElems[i].className += ' language-clike';
+                lang = 'clike';
+            }
+
+            if (languages.indexOf(lang) === -1)
+                languages.push(lang);
+        }
+
+        for (i = 0; i < languages.length; ++i) {
+            addPrismLangJs(languages[i]);
+        }
+    }
+</script>
