@@ -38,7 +38,7 @@ gulp.task('bootstrap-js', function() {
 });
 
 gulp.task('watch', function() {
-    gulp.watch([stylFiles, './assets/bootstrap-stylus-5.0.2/bootstrap/*.styl'], ['stylus']);
+    gulp.watch([stylFiles, './assets/bootstrap-stylus-5.0.2/bootstrap/*.styl'], ['stylus-compile']);
 });
 
 gulp.task('default', ['stylus', 'bootstrap-js']);
