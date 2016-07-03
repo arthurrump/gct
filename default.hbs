@@ -19,7 +19,26 @@
     <body class="{{body_class}}">
         {{navigation}}
 
-        {{{body}}}
+        <div class="container-fluid">
+            
+            <div class="row">
+                {{{body}}}
+            </div>
+
+            <footer id="gct-footer" class="row">
+                <section class="copyright">
+                    <a href="{{@blog.url}}">{{@blog.title}}</a>
+                    &copy; {{date format="YYYY"}}
+                </section>
+                &sdot;
+                <section class="theme-info">
+                    <a href="https://github.com/arthurrump/gct">GCT</a> theme by Arthur Rump
+                </section>
+                &sdot;
+                <section class="ghost-info">
+                    Proudly published with <a href="https://ghost.org">Ghost</a>
+            </footer>
+        </div>
 
         <script src="//code.jquery.com/jquery-1.12.4.min.js"></script> {{! Bootstrap requires jQuery }}
         <script src="{{asset "js/bootstrap.min.js"}}"></script>
