@@ -16,16 +16,22 @@
 
         {{ghost_head}}
     </head>
-    <body class="{{body_class}}">
+    <body class="{{body_class}}
+        {{#if @blog.cover}}
+        gct-cover-background" style="background-image: url({{@blog.cover}});
+        {{/if}}" >
+
         {{navigation}}
 
         <div class="container-fluid">
             
             <div class="row">
-                {{{body}}}
+                <div class="col-md-6 col-md-push-3">
+                    {{{body}}}
+                </div>
             </div>
 
-            <footer id="gct-footer" class="row">
+            <footer id="gct-footer" class="row gct-content">
                 <section class="copyright">
                     <a href="{{@blog.url}}">{{@blog.title}}</a>
                     &copy; {{date format="YYYY"}}
