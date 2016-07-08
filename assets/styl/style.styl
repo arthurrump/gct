@@ -1,7 +1,9 @@
 @require "../bootstrap-stylus-5.0.2/index.styl"
 
+$body-padding-top = $navbar-height + $padding-large-vertical
+
 body
-    padding-top: $navbar-height + $padding-large-vertical
+    padding-top: $body-padding-top
 
 .navbar-brand 
     img
@@ -52,31 +54,51 @@ article
                 margin-right: $padding-small-horizontal
 
 #gct-footer
+    padding: $padding-large-vertical $padding-large-horizontal
+    margin: $padding-large-vertical 0
     text-align: center
     
     section
         display: inline
+
+.gct-title-box
+    display: flex
+    justify-content: center
+    align-items: center
+    text-align: center
+
+    h1
+        font-size: 2 * $font-size-h1
+        font-weight: bold
+
+    p
+        font-size: 1.5 * $font-size-large
+        font-weight: lighter
+
+.gct-error-title-box
+    min-height: 90vh
+
+    blockquote
+        color: $text-color
+        text-align: left
+        text-indent: 1em
+
+        p
+            font-size: $font-size-large
+
+        footer
+            text-align: right
 
 .gct-cover-background
     background-size: cover
     background-attachment: fixed
     background-position: center center
 
-    .cover-title
-        height: 60vh
-        display: flex
-        justify-content: center
-        align-items: center
-        text-align: center
+    .gct-title-box
         color: #fff
 
-        h1
-            font-size: 2 * $font-size-h1
-            font-weight: bold
-
-        p
-            font-size: 1.5 * $font-size-large
-            font-weight: lighter
+    .gct-article-loop-title
+        height: 60vh
 
     .gct-content
         background: $body-bg

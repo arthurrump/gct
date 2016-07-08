@@ -1,39 +1,37 @@
-<div class="container-fluid">
-    {{! Extra pager for pages 2+ }}
-    <div class="extra-pager">
-        {{pagination}}
-    </div>
-
-    {{! The actual posts }}
-    {{#foreach posts}}
-        <article class="{{post_class}} gct-content">
-            <header>
-                <h2 class="post-title"><a href="{{url}}">{{title}}</a></h2>
-                <time class="post-date">{{date format="MMMM Do, YYYY HH:mm"}}</time>
-                {{#if image}}
-                    <img class="post-image" src="{{image}}" alt="{{title}}" />
-                {{/if}}
-            </header>
-            <section class="post-excerpt">
-                {{excerpt words="58"}} <a href="{{url}}">Read more&hellip;</a>
-            </section>
-            <footer class="row">
-                <div class="col-sm-4 post-author">
-                    {{#if author.image}}
-                        <img class="author-thumb" src="{{author.image}}" alt="{{author.name}}" nopin="nopin" />
-                    {{/if}}
-                    {{author}}
-                </div>
-                <div class="col-sm-8 post-tags">
-                    {{#if tags}}
-                        <span class="sr-only">Tags: </span>
-                        <span class="tag-icon glyphicon glyphicon-tags" aria-hidden="true"></span>
-                        &nbsp;{{tags}}
-                    {{/if}}
-                </div>
-            </footer>
-        </article>
-    {{/foreach}}
-    
+{{! Extra pager for pages 2+ }}
+<div class="extra-pager">
     {{pagination}}
 </div>
+
+{{! The actual posts }}
+{{#foreach posts}}
+    <article class="{{post_class}} gct-content">
+        <header>
+            <h2 class="post-title"><a href="{{url}}">{{title}}</a></h2>
+            <time class="post-date">{{date format="MMMM Do, YYYY HH:mm"}}</time>
+            {{#if image}}
+                <img class="post-image" src="{{image}}" alt="{{title}}" />
+            {{/if}}
+        </header>
+        <section class="post-excerpt">
+            {{excerpt words="58"}} <a href="{{url}}">Read more&hellip;</a>
+        </section>
+        <footer class="row">
+            <div class="col-sm-4 post-author">
+                {{#if author.image}}
+                    <img class="author-thumb" src="{{author.image}}" alt="{{author.name}}" nopin="nopin" />
+                {{/if}}
+                {{author}}
+            </div>
+            <div class="col-sm-8 post-tags">
+                {{#if tags}}
+                    <span class="sr-only">Tags: </span>
+                    <span class="tag-icon glyphicon glyphicon-tags" aria-hidden="true"></span>
+                    &nbsp;{{tags}}
+                {{/if}}
+            </div>
+        </footer>
+    </article>
+{{/foreach}}
+
+{{pagination}}
