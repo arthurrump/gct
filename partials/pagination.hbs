@@ -1,0 +1,21 @@
+<nav>
+  <ul class="pager">
+        <li class="previous col-md-4">
+    {{#if prev}}
+            <a href="{{page_url prev}}">
+                <span aria-hidden="true">&larr;</span> Previous
+            </a>
+    {{/if}}
+        </li>
+
+    <li class="gct-page-number col-md-4">Page {{page}} of {{pages}}</li>
+    
+        <li class="next col-md-4">
+    {{#if next}}
+            <a href="{{page_url next}}">
+                Next <span aria-hidden="true">&rarr;</span>
+            </a>
+    {{/if}}
+        </li>
+  </ul>
+</nav>
